@@ -51,12 +51,8 @@ A robust RESTful API for managing and applying different types of discount coupo
 
 5. **Run the application**
    ```bash
-   # Development mode
+   # Start the application
    npm run start:dev
-   
-   # Production mode
-   npm run build
-   npm run start:prod
    ```
 
 ## ⚙️ Configuration
@@ -355,25 +351,11 @@ The system is designed for easy extension:
 4. **A/B Testing**: Coupon effectiveness testing
 5. **Advanced Analytics**: Predictive analytics for coupon performance
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Ensure all tests pass
-6. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
 ## 🆘 Support
 
 For questions or issues:
 1. Check the Swagger documentation at `/api`
 2. Review the test cases for usage examples
-3. Open an issue in the repository
 
 ---
 
