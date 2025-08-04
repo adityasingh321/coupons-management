@@ -421,6 +421,8 @@ For questions or issues:
 1. Check the Swagger documentation at `/api`
 2. Review the test cases for usage examples
 
----
+## 💼 **Implementation Note**
 
-**Note**: This implementation focuses on core coupon functionality with a solid foundation for future enhancements. The architecture is designed to be scalable and maintainable, making it easy to add new features as business requirements evolve. 
+I implemented the task using **NestJS (Node.js/TypeScript)** as it's what I'm most comfortable with, but I'm happy to adapt to Golang/Spring Boot as needed.
+
+--- 
