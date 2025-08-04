@@ -15,15 +15,15 @@ A robust RESTful API for managing and applying different types of discount coupo
 
 ## 📋 Table of Contents
 
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [API Endpoints](#api-endpoints)
-- [Coupon Types & Use Cases](#coupon-types--use-cases)
-- [Examples](#examples)
-- [Testing](#testing)
-- [Architecture](#architecture)
-- [Assumptions & Limitations](#assumptions--limitations)
-- [Future Enhancements](#future-enhancements)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [API Endpoints](#-api-endpoints)
+- [Coupon Types & Use Cases](#-coupon-types--use-cases)
+- [Examples](#-examples)
+- [Testing](#-testing)
+- [Architecture](#-architecture)
+- [Assumptions & Limitations](#-assumptions--limitations)
+- [Future Enhancements](#-future-enhancements)
 
 ## 🛠 Installation
 
