@@ -4,6 +4,7 @@ import { CouponType } from '../../common/enums/coupon-type.enum';
 import { CartWiseDetailsDto } from './cart-wise-details.dto';
 import { ProductWiseDetailsDto } from './product-wise-details.dto';
 import { BxGyDetailsDto } from './bxgy-details.dto';
+import { PartialType } from '@nestjs/mapped-types';
 
 export class CreateCouponDto {
   @ApiProperty({ 
@@ -94,7 +95,7 @@ export class CreateCouponDto {
   code?: string;
 }
 
-export class UpdateCouponDto extends CreateCouponDto {
+export class UpdateCouponDto extends PartialType(CreateCouponDto) {
   @ApiProperty({ 
     description: 'Whether coupon is active and can be used',
     example: true
@@ -102,4 +103,4 @@ export class UpdateCouponDto extends CreateCouponDto {
   @IsOptional()
   @IsBoolean()
   is_active?: boolean;
-} 
+}
