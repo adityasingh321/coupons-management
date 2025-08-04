@@ -23,6 +23,12 @@ import { SampleDataSeeder } from './seeders/sample-data.seeder';
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true,
         logging: true,
+        // Cloud SQL specific settings - only use socket path if DB_HOST is a socket path
+        ...(configService.get('DB_HOST', '').startsWith('/cloudsql') && {
+          extra: {
+            socketPath: configService.get('DB_HOST'),
+          },
+        }),
       }),
       inject: [ConfigService],
     }),

@@ -13,6 +13,70 @@ A robust RESTful API for managing and applying different types of discount coupo
 - **Unit Testing**: Comprehensive test coverage
 - **Extensible Architecture**: Easy to add new coupon types in the future
 
+## ⚠️ **IMPORTANT: Understanding Cart Value Limits**
+
+### 🛒 **min_cart_value vs threshold - Don't Get Confused!**
+
+**Current Implementation Note:** The API currently has two similar fields that might seem redundant:
+
+#### **min_cart_value** (Global)
+- **Purpose**: Basic eligibility check for ALL coupon types
+- **Location**: At the coupon level (not in details)
+- **Logic**: `if (cartTotal < min_cart_value) return 0;`
+
+#### **threshold** (Cart-wise specific)
+- **Purpose**: Cart-wise coupon specific minimum for percentage discounts
+- **Location**: Inside `details` for cart-wise coupons only
+- **Logic**: `if (cartTotal < threshold) return 0;`
+
+### 🔄 **How They Work Together:**
+
+```json
+{
+  "type": "cart-wise",
+  "min_cart_value": 50,    // Global minimum (redundant for cart-wise)
+  "details": {
+    "threshold": 200,      // Cart-wise specific minimum
+    "discount": 20
+  }
+}
+```
+
+**Validation Flow:**
+1. Check `min_cart_value` (if cart < $50, no discount)
+2. Check `threshold` (if cart < $200, no discount)
+
+### 🎯 **Recommendation:**
+
+**For Cart-wise coupons:** Use only `threshold` in details, ignore `min_cart_value`
+**For other coupon types:** Use `min_cart_value` as the minimum requirement
+
+### 📝 **Example - Clean Approach:**
+
+```json
+// Cart-wise coupon (use threshold only)
+{
+  "type": "cart-wise",
+  "details": {
+    "threshold": 200,      // Only this matters for cart-wise
+    "discount": 20
+  },
+  "max_discount": 100
+}
+
+// Product-wise coupon (use min_cart_value)
+{
+  "type": "product-wise",
+  "min_cart_value": 25,    // This matters for product-wise
+  "details": {
+    "product_id": 123,
+    "discount": 15
+  }
+}
+```
+
+**Note:** This is a design consideration for future improvements. Currently, both checks are performed.
+
 ## 📋 Table of Contents
 
 - [Installation](#-installation)
